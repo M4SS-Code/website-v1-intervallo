@@ -1,0 +1,158 @@
+/***** Eric Meyer CSS Reset *****/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+/* remember to highlight inserts somehow! */
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/***** M4SS Stylesheet 
+Google Fonts used:
+    font-family: 'Playfair Display', serif;
+    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Zilla Slab', serif;
+    font-family: 'Ubuntu', sans-serif;
+    font-family: 'IBM Plex Mono', monospace;
+
+*****/
+
+body {
+	background-image: url('/assets/images/1.jpg');
+	background-color: white;
+	background-position-x: center;
+    background-position-y: top;
+	background-repeat: no-repeat;
+	background-blend-mode: darken;
+	background-size: cover;
+	transition: 0.5s;
+	color: white;
+}
+
+#container {
+	height: 100%;
+	width: 100%;
+}
+
+header {
+	width: 100%;
+	top: 0;
+    position: absolute;	
+}
+
+#header_logo {
+	float: left;
+}
+#header_logo img { height: 78px; }
+
+#header_data {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 290px;
+	height: 29px;
+	background-color: white;
+	color: black;
+	font-family: 'Roboto Mono';
+	font-size: 9px;
+	vertical-align: middle;
+}
+#header_data .data_text { 
+	padding: 0px 15px;
+	z-index: 105;	
+	display: inline;
+	line-height: 9px; 
+}
+#header_data span {
+	position: relative;
+	top: 9px;
+	left: 10px;
+}
+#header_data .data_text img {
+	height: 20px; 
+}
+
+
+
+#box_data {
+	height: 48px;
+	float: left;
+	margin-right: 4px;
+	padding: 0 10px;
+	line-height: 46px;
+}
+#box_social {
+	height: 48px;
+	float: right;
+}
+
+section {
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+section .title {
+	display: inline;
+	margin: 0 0.5vw;
+	font-family: 'IBM Plex Mono', monospace;
+	font-weight: 400;
+    font-size: 10vh;
+	clip-path: inset(0 0 0 0);
+}
+
+section .title span {
+	position: relative;
+	left: 0px;
+	top: 2px;	
+}
+
+#l_I {
+	left: 0px;
+	top: 2px;	
+}
