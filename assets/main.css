@@ -59,15 +59,16 @@ Google Fonts used:
 
 *****/
 
-body {
-	background-image: url('/assets/images/1.jpg');
+#container {
 	background-color: white;
 	background-position-x: center;
     background-position-y: top;
 	background-repeat: no-repeat;
 	background-blend-mode: darken;
 	background-size: cover;
-	transition: 0.5s;
+	transition-property: opacity;
+    transition-duration: 0.5s;
+	transition-timing-function: linear;
 	color: white;
 }
 
@@ -75,6 +76,39 @@ body {
 	height: 100%;
 	width: 100%;
 }
+
+.slideshow-background {
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    transform: translateZ(0);
+}
+.slideshow-background .slideshow-container {
+    display: block;
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    overflow: hidden;
+}
+.slideshow-background .slideshow-container .slideshow-image {
+    display: block;
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+	transition-property: opacity; 
+	transition-duration: 0.5s; 
+	transition-timing-function: linear;
+}
+
 
 header {
 	width: 100%;

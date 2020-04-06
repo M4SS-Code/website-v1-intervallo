@@ -23,11 +23,11 @@
         document.addEventListener("DOMContentLoaded", function(event) { 
 
             // load first background image
-            change_background_image();
+            //change_background_image();
             // then a new one after the interval
-            //setInterval(() => {
-            //    change_background_image();
-            //}, 3000);
+            setInterval(() => {
+                change_background_image();
+            }, 3000);
 
             // change Intervallo text
             //setInterval(() => {
@@ -39,8 +39,14 @@
 </head>
 <body>
     <div id="container">
+        <div class="slideshow-background">
+            <div class="slideshow-container">
+                <div id="si_1" class="slideshow-image" style="z-index: 2; background-image: url('/assets/images/1.jpg');"></div>
+                <div id="si_2" class="slideshow-image" style="z-index: 1; background-image: url('/assets/images/2.jpg');"></div>
+                <div id="si_3" class="slideshow-image" style="z-index: 1; background-image: url('/assets/images/3.jpg');"></div>
+            </div>
+        </div>        
         <header>
-            <div class="rmwidget widget-shape div-instead-of-svg no-transition above-all-fade fade-in" data-id="5e7e45c09a4857007d4b9672" style="top: 0px; width: 290px; height: 29px; right: 0px; z-index: 104; background-color: rgb(255, 255, 255); border-color: rgb(255, 255, 255); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box;"></div>            
             <div id="header_data">
                 <div>
                     <span>M4SS srl - P.IVA IT02772290355</span>

@@ -1,6 +1,6 @@
 /* MAIN JAVASCRIPT M4SS */
 
-var num_bg_images = 2;
+var num_bg_images = 3;
 var current_bg_image = 1;
 
 function change_background_image()
@@ -10,10 +10,17 @@ function change_background_image()
     } else {
         current_bg_image += 1;
     }
-    var body = document.getElementsByTagName('body')[0];
-    var new_src = "/assets/images/" + current_bg_image + ".jpg";
-    body.style.backgroundImage = 'url(' + new_src + ')';
+    
+    // move UP the current id
+    var element_id_current = 'si_' + current_bg_image;
+    document.getElementById(element_id_current).style.zIndex = 1;
+
+    // move all the others to z-index 2
+    for(i = 1; i <= num_bg_images; i++) {
+        document.getElementById('si_' + i).style.zIndex = 2;
+    }
 }
+
 
 function change_intervallo()
 {
