@@ -178,3 +178,10 @@ section .title span {
 	transition-property: all;
 	transition: 1s cubic-bezier(0.5,0.25,0,1);
 }
+
+.notransition {
+	-webkit-transition: none !important;
+	-moz-transition: none !important;
+	-o-transition: none !important;
+	transition: none !important;
+  }

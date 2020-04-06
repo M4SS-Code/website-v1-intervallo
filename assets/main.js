@@ -65,6 +65,7 @@
         self.idl = idl;
         self.resetPos = 0;
         self.bottomPos = 80;
+        self.topPos = -80;
 
         self.elementid = document.getElementById("l_" + idl);
 
@@ -99,6 +100,10 @@
         // MOVE letter UP
         self.moveLetterUp = function () {
             //console.log("moveLetterUp");
+            self.elementid.classList.add('notransition'); // Disable transitions
+            self.elementid.style.top = self.topPos + "px";
+            self.elementid.offsetHeight; // Trigger a reflow, flushing the CSS changes
+            self.elementid.classList.remove('notransition'); // Re-enable transitions
             self.elementid.style.top = self.resetPos + "px";
         }
 
