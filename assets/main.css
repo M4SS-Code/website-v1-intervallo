@@ -104,8 +104,7 @@ Google Fonts used:
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
-	transition-property: opacity; 
-	transition-duration: 0.5s; 
+	transition: all 1s; 
 	transition-timing-function: linear;
 }
 
@@ -125,41 +124,32 @@ header {
 	position: absolute;
 	right: 0px;
 	top: 0px;
-	width: 290px;
+	width: 250px;
 	height: 29px;
 	background-color: white;
 	color: black;
 	font-family: 'Roboto Mono';
 	font-size: 9px;
 	vertical-align: middle;
+	padding-right: 4px;	
 }
-#header_data .data_text { 
-	padding: 0px 15px;
-	z-index: 105;	
-	display: inline;
-	line-height: 9px; 
+#header_data div p { 
+	line-height: 9px;
+	font-size: 9px;
+	white-space: inherit;
 }
 #header_data span {
 	position: relative;
 	top: 9px;
 	left: 10px;
 }
-#header_data .data_text img {
-	height: 20px; 
-}
-
-
-
-#box_data {
-	height: 48px;
-	float: left;
-	margin-right: 4px;
-	padding: 0 10px;
-	line-height: 46px;
-}
-#box_social {
-	height: 48px;
+#header_data div a {
 	float: right;
+	margin: 4px 4px;
+}
+
+#header_data img {
+	height: 20px; 
 }
 
 section {
@@ -172,7 +162,6 @@ section {
 }
 
 section .title {
-	display: inline;
 	margin: 0 0.5vw;
 	font-family: 'IBM Plex Mono', monospace;
 	font-weight: 400;
@@ -181,12 +170,11 @@ section .title {
 }
 
 section .title span {
+	display: inline-block;
+	width: 6vh;
 	position: relative;
 	left: 0px;
-	top: 2px;	
-}
-
-#l_I {
-	left: 0px;
-	top: 2px;	
+	top: 0px;	
+	transition-property: all;
+	transition: 1s cubic-bezier(0.5,0.25,0,1);
 }

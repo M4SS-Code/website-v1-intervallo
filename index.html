@@ -5,16 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="/assets/main.css" media="all" />
     <script type="text/javascript" language="JavaScript" src="/assets/main.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i,700,700i|Playfair+Display:400,400i|Rajdhani:400,500,700|Roboto+Mono:300,300i,400,400i,500,500i|Ubuntu:400,400i,700,700i|Zilla+Slab:400,400i&display=swap" rel="stylesheet">
-
-    <link rel="preload" href="/assets/images/1.jpg" as="image">
-    <link rel="preload" href="/assets/images/2.jpg" as="image">
-    <!-- link rel="preload" href="/assets/images/3.jpg" as="image" -->
-    <!-- link rel="preload" href="/assets/images/4.jpg" as="image" -->
-    <!-- link rel="preload" href="/assets/images/5.jpg" as="image" -->
-    <!-- link rel="preload" href="/assets/images/6.jpg" as="image" -->
-    <link rel="icon" href="data:,">
-
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i|Playfair+Display:400,400i|Rajdhani:400|Roboto+Mono:400,400i|Ubuntu:400,400i|Zilla+Slab:400,400i&display=swap" rel="stylesheet">
     <script>
 
         // Read more here about DOMContentLoaded
@@ -22,17 +13,20 @@
 
         document.addEventListener("DOMContentLoaded", function(event) { 
 
-            // load first background image
-            //change_background_image();
+            // write intervallo the first time
+            for(i in letters) {
+                write_letter_of_main_text(i);
+            }
+
             // then a new one after the interval
             setInterval(() => {
                 change_background_image();
-            }, 3000);
+            }, 5000);
 
             // change Intervallo text
-            //setInterval(() => {
+            setInterval(() => {
                 change_intervallo();
-            //}, 1000);
+            }, 3000);
 
         });
     </script>
@@ -41,18 +35,20 @@
     <div id="container">
         <div class="slideshow-background">
             <div class="slideshow-container">
-                <div id="si_1" class="slideshow-image" style="z-index: 2; background-image: url('/assets/images/1.jpg');"></div>
-                <div id="si_2" class="slideshow-image" style="z-index: 1; background-image: url('/assets/images/2.jpg');"></div>
-                <div id="si_3" class="slideshow-image" style="z-index: 1; background-image: url('/assets/images/3.jpg');"></div>
+                <div id="si_1" class="slideshow-image" style="background-image: url('/assets/images/1.jpg'); opacity: 1;"></div>
+                <div id="si_2" class="slideshow-image" style="background-image: url('/assets/images/2.jpg'); opacity: 0;"></div>
+                <div id="si_3" class="slideshow-image" style="background-image: url('/assets/images/3.jpg'); opacity: 0;"></div>
+                <div id="si_4" class="slideshow-image" style="background-image: url('/assets/images/4.jpg'); opacity: 0;"></div>
             </div>
         </div>        
         <header>
             <div id="header_data">
                 <div>
-                    <span>M4SS srl - P.IVA IT02772290355</span>
-                    <a href=""><img src="/assets/icons/github.png" /></a>
-                    <a href=""><img src="/assets/icons/linkedin.png" /></a>
-                    <a href=""><img src="/assets/icons/twitter.png" /></a>
+                    <p>
+                        <span style="font-family: 'Roboto Mono';">M4SS srl - P.IVA IT02772290355 </span>
+                    <a href="https://github.com/M4SS-Code"><img src="/assets/icons/github.png" /></a>
+                    <a href="https://www.linkedin.com/company/m4ss/"><img src="/assets/icons/linkedin.png" /></a>
+                </p>                    
                 </div>
             </div>
             <div id="header_logo">
@@ -61,7 +57,7 @@
         </header>
 
         <section>
-            <div class="title"><span id="l_I" style="left: 0px; top: 0px;">I</span></div><div class="title" id="l_n">n</div><div class="title" id="l_t">t</div><div class="title" id="l_e">e</div><div class="title" id="l_r">r</div><div class="title" id="l_v">v</div><div class="title" id="l_a">a</div><div class="title" id="l_l">l</div><div class="title" id="l_l">l</div><div class="title" id="l_o">o</div>
+            <div id="main_text" class="title"></div>
         </section>
     </div>
 </body>

@@ -1,108 +1,106 @@
 /* MAIN JAVASCRIPT M4SS */
 
-var num_bg_images = 3;
-var current_bg_image = 1;
+    var num_bg_images = 4;
+    var current_bg_image = 1;
+    var letters = ['I', 'n', 't', 'e', 'r', 'v', 'a', 'l', 'l', 'o'];
 
-function change_background_image()
-{
-    if(current_bg_image + 1 > num_bg_images) {
-        current_bg_image = 1;
-    } else {
-        current_bg_image += 1;
-    }
-    
-    // move UP the current id
-    var element_id_current = 'si_' + current_bg_image;
-    document.getElementById(element_id_current).style.zIndex = 1;
-
-    // move all the others to z-index 2
-    for(i = 1; i <= num_bg_images; i++) {
-        document.getElementById('si_' + i).style.zIndex = 2;
-    }
-}
-
-
-function change_intervallo()
-{
-    change_font_family();
-}
-
-function change_font_family()
-{
-    var lObj = new Letter("l_I");
-    lObj.startMove();
-
+    function change_background_image()
+    {
+        var prev_current_bg_image = current_bg_image;
+        if(current_bg_image + 1 > num_bg_images) {
+            current_bg_image = 1;
+        } else {
+            current_bg_image += 1;
+        }
         
-
-
-//    var interval_mover = setInterval(() => {
-//    }, 100);
-// x.style.fontFamily = 'Ubuntu';
-    // console.log('call change_font_family');
-}
-
-
-    /*
-     *  Letters static class
-     *  Manage "Intervallo" changes
-     */
-    var Letters = {
-
-        // set letter live changing
-        letter_live: null,
-
-        // list of letters
-        letters_order_change: {
-            'o': ['Rajdhani', '16px'],
-            'e': ['Ubuntu', '26px']
-        },
-
-        changeNextLetter: function(letter) {
-            this.letter_live = idl;
-            console.log("Letter Live: '" + this.letter_live + "'");
-        },
-
-
-        moveLetterDown: function(idl) {
-            var elementid = document.getElementById(idl);
-            var topVal = parseInt(elementid.style.top, 10);
-            elementid.style.top = (topVal + 1) + "px";
-            console.log(topVal);
-        },
-
+        // move DOWN the previous id
+        document.getElementById('si_' + prev_current_bg_image).style.opacity = "0";
+        // move UP the current id
+        document.getElementById('si_' + current_bg_image).style.opacity = "1";
     }
+
+    function write_letter_of_main_text(i)
+    {
+        var lettera = letters[i];
+        var div_lettera = '<span id="l_' + 
+                            i + 
+                            '" style="top: 0px;">' + lettera + 
+                            '</span></div>';
+        document.getElementById('main_text').innerHTML += div_lettera;
+    }
+
+
+    /**
+     * Change Letters randomly
+     */
+
+    function change_intervallo()
+    {
+        const randomLetterKey = Math.floor(Math.random() * letters.length);
+        var lObj = new Letter(randomLetterKey);
+        lObj.startChange();
+    }
+
 
     /*
     *  A SINGLE Letter object
     */
     function Letter (idl) {
+        
         var self = this;
+
+        self.font_families = [ 
+            'IBM Plex Mono',
+            'Playfair Display',
+            'Rajdhani',
+            'Roboto Mono',
+            'Ubuntu', 
+            'Zilla Slab'
+        ];
+        self.font_styles = [
+            'italic',
+            'normal'
+        ];
+    
         self.idl = idl;
-        self.startLive_Interval = false;
-        self.elementid = document.getElementById(idl);
+        self.resetPos = 0;
+        self.bottomPos = 80;
 
+        self.elementid = document.getElementById("l_" + idl);
+
+        self.startChange = function () {
+            setTimeout( () => {
+                self.moveLetterDown();
+            }, 50);
+            setTimeout( () => {
+                self.changeLetterType();
+            }, 1000);
+            setTimeout( () => {
+                self.moveLetterUp();
+            }, 1000);
+
+        }
+
+        // MOVE letter DOWN
         self.moveLetterDown = function() {
-            var topVal = parseInt(self.elementid.style.top, 10);
-            self.elementid.style.top = (topVal + 1) + "px";
-            if(topVal > 50) 
-            {
-                self.stopMove();
-            }
+            //console.log("moveLetterDown");
+            self.elementid.style.top = self.bottomPos + "px";
         };
 
-        // START to move letter down
-        self.startMove = function() {
-            if(self.startLive_Interval === false) {
-                self.startLive_Interval = window.setInterval(self.moveLetterDown, 50);
-            }
+        // CHANGE FONT...
+        self.changeLetterType = function() {
+            var randomFont = self.font_families[Math.floor(Math.random() * self.font_families.length)];
+            self.elementid.style.fontFamily = randomFont;
+            var randomStyle = self.font_styles[Math.floor(Math.random() * self.font_styles.length)];
+            self.elementid.style.fontStyle = randomStyle;
+            console.log("Change letter '" + window.letters[self.idl] + "' - Font: " + randomFont + " - Style: " + randomStyle);
         };
 
-        // STOP to move letter down
-        self.stopMove = function() {
-            if(self.startLive_Interval !== false) {
-                // stop interval
-                clearInterval(self.startLive_Interval);
-                self.startLive_Interval = false;
-            }
-        };        
+        // MOVE letter UP
+        self.moveLetterUp = function () {
+            //console.log("moveLetterUp");
+            self.elementid.style.top = self.resetPos + "px";
+        }
+
+
     };
