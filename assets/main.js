@@ -64,7 +64,7 @@
     
         self.idl = idl;
         self.resetPos = 0;
-        self.bottomPos = 80;
+        self.bottomPos = 100;
         self.topPos = -80;
 
         self.elementid = document.getElementById("l_" + idl);
